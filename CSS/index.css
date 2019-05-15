@@ -47,8 +47,8 @@
   width: 350px;
   height: 100vh;
   /* This give the height 100% of the screen or, '100% of View Height' */
-  background-color: #81C784;
-  border: 1px solid #004D40;
+  background-color: #81c784;
+  border: 1px solid #004d40;
   border-left: none;
   border-bottom: none;
   z-index: 2;
@@ -80,13 +80,11 @@
   left: 0px;
   width: 350px;
   height: 100vh;
-  /* This give the height 100% of the screen or, '100% of View Height' */
-  background-color: #81C784;
-  border: 1px solid #004D40;
+  background-color: #81c784;
+  border: 1px solid #004d40;
   border-left: none;
   border-bottom: none;
   z-index: 2;
-  /* This set the layer level of the element, it has precendence over initial level of 1*/
 }
 @keyframes slide-in {
   0% {
@@ -159,13 +157,6 @@
     height: 0;
   }
 }
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto";
-  background-color: #fffef7;
-}
 button {
   position: absolute;
   top: 0;
@@ -215,4 +206,11 @@ button {
   width: 70px;
   padding: 5px;
   border-radius: 5px;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto";
+  background-color: #fffef7;
 }
