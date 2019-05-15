@@ -11,10 +11,7 @@
   height: 50px;
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
-
-  animation-name: collapse;
-  animation-duration: 0.3s;
-  animation-timing-function: linear;
+  transition: height 0.5s;
 
   h2 {
     font-size: 28px;
@@ -47,30 +44,6 @@
 
 .article-open {
   height: 400px;
-
-  animation-name: expand;
-  animation-duration: 0.3s;
-  animation-timing-function: linear;
-}
-
-@keyframes expand {
-  0% {
-    height: 0;
-  }
-
-  100% {
-    height: 400px;
-  }
-}
-
-@keyframes collapse {
-  0% {
-    height: 400px;
-  }
-
-  100% {
-    height: 0;
-  }
 }
 
 button {
