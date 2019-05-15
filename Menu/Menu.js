@@ -12,8 +12,14 @@ const menuButton = document.querySelector(".menu-button");
 // Using your menuButton reference, add a click handler that calls toggleMenu
 menuButton.addEventListener("click", toggleMenu);
 
-// close the menu when the user clicks anywhere on the page
+// close the menu when the user clicks anywhere on the article or form section
 const page = document.querySelector(".articles");
+const formSection = document.querySelector("form");
+
 page.addEventListener("click", () => {
+  menu.classList.remove("menu--open");
+});
+
+formSection.addEventListener("click", () => {
   menu.classList.remove("menu--open");
 });
