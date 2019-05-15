@@ -41,10 +41,43 @@
   cursor: pointer;
 }
 .menu {
-  display: none;
   position: fixed;
   top: 75px;
-  left: 0;
+  left: -350px;
+  width: 350px;
+  height: 100vh;
+  /* This give the height 100% of the screen or, '100% of View Height' */
+  background-color: #81C784;
+  border: 1px solid #004D40;
+  border-left: none;
+  border-bottom: none;
+  z-index: 2;
+  /* This set the layer level of the element, it has precendence over initial level of 1*/
+  animation-name: slide-out;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+}
+@keyframes slide-out {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: -350px;
+  }
+}
+.menu ul li {
+  list-style-type: none;
+  font-size: 32px;
+  padding: 30px 0;
+  text-align: center;
+}
+.menu--open {
+  animation-name: slide-in;
+  animation-duration: 0.2s;
+  animation-timing-function: linear;
+  position: fixed;
+  top: 75px;
+  left: 0px;
   width: 350px;
   height: 100vh;
   /* This give the height 100% of the screen or, '100% of View Height' */
@@ -55,14 +88,13 @@
   z-index: 2;
   /* This set the layer level of the element, it has precendence over initial level of 1*/
 }
-.menu ul li {
-  list-style-type: none;
-  font-size: 32px;
-  padding: 30px 0;
-  text-align: center;
-}
-.menu--open {
-  display: block;
+@keyframes slide-in {
+  0% {
+    left: -350px;
+  }
+  100% {
+    left: 0px;
+  }
 }
 .articles {
   margin-top: 95px;
@@ -77,6 +109,9 @@
   height: 50px;
   overflow: hidden;
   box-shadow: 2px 2px 2px lightgrey;
+  animation-name: collapse;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
 }
 .article h2 {
   font-size: 28px;
@@ -104,6 +139,25 @@
 }
 .article-open {
   height: 400px;
+  animation-name: expand;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+}
+@keyframes expand {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 400px;
+  }
+}
+@keyframes collapse {
+  0% {
+    height: 400px;
+  }
+  100% {
+    height: 0;
+  }
 }
 html,
 body {
@@ -111,4 +165,14 @@ body {
   padding: 0;
   font-family: 'Roboto';
   background-color: #fffef7;
+}
+button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: red;
+  color: white;
+  border-radius: 0 10px 0 0;
 }
