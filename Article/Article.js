@@ -54,3 +54,63 @@ const articles = document.querySelectorAll('.article');
 articles.forEach(article => {
   new Article(article);
 })
+
+// fetch form data
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const title = document.querySelector('input').value;
+  const body = document.querySelector('textarea').value;
+
+  new CreateArticles({
+    title,
+    body
+  });
+})
+
+class CreateArticles {
+  constructor(newsItem) {
+    this.title = newsItem.title;
+    this.body = newsItem.body;
+    this.date = Date().slice(0, 16);
+    this.article = document.createElement('div');
+
+    this.insertH2();
+    this.insertDate();
+    this.insertBody();
+    this.addCloseBody();
+    this.appendArticle();
+
+    new Article(this.article);
+  }
+
+  insertH2() {
+    const header = document.createElement('h2');
+    header.textContent = this.title;
+    this.article.appendChild(header);
+  }
+
+  insertDate() {
+    const paragraph = document.createElement('p');
+    paragraph.textContent = this.date;
+    paragraph.setAttribute('class', 'date');
+    this.article.appendChild(paragraph);
+  }
+
+  insertBody() {
+    const body = document.createElement('p');
+    body.textContent = this.body;
+    this.article.appendChild(body);
+  }
+
+  addCloseBody() {
+    const closeBody = document.createElement('span');
+    closeBody.setAttribute('class', 'expandButton');
+    this.article.appendChild(closeBody);
+  }
+
+  appendArticle() {
+    this.article.setAttribute('class', 'article');
+    document.querySelector('.articles').prepend(this.article);
+  }
+}
